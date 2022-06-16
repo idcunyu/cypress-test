@@ -75,41 +75,59 @@ function shangjitijiao(anniuleiming, loucengleiming) {
 }
 
 describe('PC端工商注册专题页', () => {
+  beforeEach(() => {
+    cy.visit('https://cs.test.zbjdev.com/zt/gszc')
+      .get('#__nuxt', { timeout: 5000 })
+      .should('have.length', 1)
+  })
+
   context ('商机提交验证', () => {
-    it ('01',() => {
-      cy.visit('https://cs.test.zbjdev.com/zt/gszc')
-        .get('#__nuxt', { timeout: 5000 })
-        .should('have.length', 1)
-        
+    it ('banner商机提交-查询能否注册按钮商机',() => {
       //banner商机提交-查询能否注册按钮商机
       shangjitijiaoBanner('.btn1')
+    })
+    it ('banner商机提交-预约注册特惠按钮商机',() => {
       //banner商机提交-预约注册特惠按钮商机
       shangjitijiaoBanner('.btn2')
+    })
 
+    it ('商机提交-注册公司相关资料楼层',() => {
       //商机提交-注册公司相关资料楼层
       shangjitijiao('.left > .content > .tran-btn', '.regist-materials')
+    })
 
+    it ('商机提交-注册公司所需费用楼层',() => {
       //商机提交-注册公司所需费用楼层
       shangjitijiao('.regist-needmoney ul > li.list-item:nth-of-type(1) .content-btn', '.regist-needmoney')
-    
+    })
+
+    it ('商机提交-选择您想要办理的公司类型楼层',() => {
       //商机提交-选择您想要办理的公司类型楼层
       shangjitijiao('.section-company .detail-wrap .tran-btn', '.section-company')
+    })
 
+    it ('商机提交-注册公司办理流程楼层',() => {
       //商机提交-注册公司办理流程楼层
       shangjitijiao('.handle-progress .bg-btn', '.handle-progress')
+    })
 
+    it ('商机提交-您需要一家可靠的公司代办注册楼层',() => {
       //商机提交-您需要一家可靠的公司代办注册楼层
       shangjitijiao('.have-bg .reliable-agent .tran-btn', '.have-bg .reliable-agent')
+    })
 
+    it ('商机提交-您可以这样选择注册地楼层',() => {
       //商机提交-您可以这样选择注册地楼层
       shangjitijiao('.have-bg .you-can .you-can-main .left .tran-btn', '.have-bg .you-can')
+    })
 
+    it ('商机提交-公司注册常见问题楼层',() => {
       //商机提交-公司注册常见问题楼层
       shangjitijiao('.common-problem .tran-btn', '.common-problem')
-
-      //Q:手机号提交频繁后有限制？
-      //Q:需要每个商机都写吗？
-
     })
+
+    //Q:手机号提交频繁后有限制？
+    //Q:需要每个商机都写吗？
+
   })
 })
