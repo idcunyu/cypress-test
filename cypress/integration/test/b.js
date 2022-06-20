@@ -31,7 +31,8 @@ function checkInAdmin() {
           adminReloadNum++ //重试次数+1
           cy.reload().then(jianchashuaxin)
         } else {
-          throw new error('重试超过设置的最大次数，需要手动检查问题')
+          adminReloadNum = 0
+          throw new Error('重试超过设置的最大次数，需要手动检查问题')
         }
       } else {
         adminReloadNum = 0
@@ -68,10 +69,10 @@ function checkInAdmin() {
           //调用方法
           chongxindianji()
         } else {
-          throw new error('查看商机列表入库失败')
+          throw new Error('查看商机列表入库失败')
         }
       } else {
-        throw new error('查看商机列表入库失败')
+        throw new Error('查看商机列表入库失败')
       }
     })
     .get('.chance-info-content .chance-follow-list .chance-follow-item:nth-of-type(1) .follow-source-info .source-info-item')
