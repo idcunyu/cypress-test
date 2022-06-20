@@ -33,6 +33,8 @@ function checkInAdmin() {
         } else {
           throw new error('重试超过设置的最大次数，需要手动检查问题')
         }
+      } else {
+        adminReloadNum = 0
       }
     })
   }
